@@ -68,8 +68,16 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/youtube', (req, res) => {
-    // res.send("<h2>Aryan Channel</h2>")
 	res.sendFile('youtube.html', { root: path.join(__dirname, 'public') }, (err) => {
+		if(err) {
+			console.error('Error sending file:', err);
+			res.status(500).send('Internal Server Error');
+		}
+	});
+})
+
+app.get('/p_tube', (req, res) => {
+	res.sendFile('p_tube.html', { root: path.join(__dirname, 'public') }, (err) => {
 		if(err) {
 			console.error('Error sending file:', err);
 			res.status(500).send('Internal Server Error');
