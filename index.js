@@ -62,7 +62,7 @@ app.get('/twitter', (req, res) => {
 })
 
 app.get('/login', (req, res) => {
-    res.send('<h1>Please login at Aryan Suryawanshi Web Page</h1>')
+    res.send('<h1>Please login at Aryan Suryawanshi Web Page</h1> <iframe src="https://example.com/login" title="Login Frame" allowfullscreen></iframe>')
 })
 
 app.get('/youtube', (req, res) => {
