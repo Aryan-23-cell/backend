@@ -1,11 +1,16 @@
 require('dotenv').config()
 const express = require('express')
 
+// import path from './htmlcode'
+
 const path = require('path')
 
 const app = express()
 
 const port = 4000
+
+app.use('/videos', express.static(path.join(__dirname, 'videos')));
+app.use('/styles', express.static(path.join(__dirname, 'styles')));
 
 const IceandFire = {
 	"url": "https://anapioficeandfire.com/api/characters/583",
@@ -67,8 +72,11 @@ app.get('/login', (req, res) => {
     res.send('<h1>Please login at Aryan Suryawanshi Web Page</h1> <iframe src="https://example.com/login" title="Login Frame" allowfullscreen></iframe>')
 })
 
+
+
 app.get('/youtube', (req, res) => {
-	res.sendFile('youtube.html', { root: path.join(__dirname, 'public') }, (err) => {
+	console.log(res.sendFile);
+	res.sendFile('youtube.html', { root: path.join(__dirname, 'htmlcode/') }, (err) => {
 		if(err) {
 			console.error('Error sending file:', err);
 			res.status(500).send('Internal Server Error');
@@ -77,7 +85,8 @@ app.get('/youtube', (req, res) => {
 })
 
 app.get('/p_tube', (req, res) => {
-	res.sendFile('p_tube.html', { root: path.join(__dirname, 'public') }, (err) => {
+	
+	res.sendFile('p_tube.html', { root: path.join(__dirname, 'htmlcode') }, (err) => {
 		if(err) {
 			console.error('Error sending file:', err);
 			res.status(500).send('Internal Server Error');
