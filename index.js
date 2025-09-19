@@ -9,6 +9,7 @@ const app = express()
 
 const port = 4000
 
+// Serve local video folder publicly
 app.use('/videos', express.static(path.join(__dirname, 'videos')));
 app.use('/styles', express.static(path.join(__dirname, 'styles')));
 
